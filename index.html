@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Thesis Generator</title>
+    
+    
+    <link href="Reset.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    
+  </head>
+  <body>
+    <header>
+      <h1>Thesis Generator</h1>
+      <nav>
+        <ul>
+        </ul>  
+      </nav>  
+    </header>
+    <div id="project-container">
+    <!--Start of project template-->
+
+    <div class="project">
+      <h2>What it is</h2>
+      <p>This code examines an essay prompt and returns a simple thesis. Currently, it is optimized for 'Evaluate the Extent' prompts that the college board loves to use.</p>
+      <input type='text' id='prompt'>
+       <p id='demo'> </p>
+      <script>
+        function keywords() {
+  var a, store, thing, word1, input;
+  word1 = " ";
+  store = [];
+  input= document.getElementById('prompt').value;
+  thing = input.split(" ");
+  for (var i = 0, _pj_a = thing.length; i < _pj_a; i += 1) {
+    if (thing[i] === "extent" && i === 2) {
+      word1 += thing[5].toString();
+      word1 += " ";
+      word1 += thing[6].toString();
+      word1 += " ";
+      a = 7;
+      store = thing[7].toString();
+
+      while (store.endsWith("ed") === false) {
+        store = thing[a].toString();
+        word1 += thing[a].toString();
+        word1 += " ";
+        console.log(store[store.length - 1]);
+        a += 1;
+        store = thing[a].toString();
+      }
+
+      word1 += "greatly ";
+
+      if (store.endsWith("d") === true) {
+        word1 += thing[a].toString();
+        word1 += " ";
+      }
+
+      word1 += thing[a + 1].toString();
+      word1 += " ";
+      word1 += thing[a + 2].toString();
+
+      while (a + 3 < thing.length) {
+        word1 += " ";
+        word1 += thing[a + 3].toString();
+        a += 1;
+      }
+
+      word1 += ".";
+      document.getElementById("demo").innerHTML =word1
+    }
+  }
+}
+
+      </script>
+      <button type='button' onclick="keywords()">Thesinate</button>
+      <div class="clear"></div>
+      
+    </div>
+    </div>
+  </body>
+</html>
