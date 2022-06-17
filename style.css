@@ -5,13 +5,13 @@ html, body {
 }
 header{
   padding: 5px;
-  margin-left: 500px;
+  text-align: center;
   
 }
 input{
-  margin-left:500px;
+  align:center;
 }
 button{
-  margin-left:600px;
+  text-align: center;
   
 }
